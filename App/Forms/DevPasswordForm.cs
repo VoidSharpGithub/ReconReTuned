@@ -12,8 +12,6 @@ namespace App.Forms
 {
     public partial class DevPasswordForm : Form
     {
-        private bool PasswordRequired = true; // Set to False to Skip Password
-        private string Password = "R3C0NT007Z"; // Set to new password for Public Applications
         public DevPasswordForm()
         {
             InitializeComponent();
@@ -21,7 +19,7 @@ namespace App.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (PasswordTextbox.Text == Password || !PasswordRequired) 
+            if (PasswordTextbox.Text == Program.DevPassword || !Program.DevPasswordRequired) 
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -36,7 +34,7 @@ namespace App.Forms
 
         private void DevPasswordForm_Load(object sender, EventArgs e)
         {
-            if (!PasswordRequired)
+            if (!Program.DevPasswordRequired)
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();

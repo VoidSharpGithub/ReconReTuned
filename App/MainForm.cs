@@ -19,6 +19,7 @@ namespace App
         private bool IsFirstTime = false;
         private bool SuppressReceiverUpdates = false;
         public ReceiverObject SelectedReceiver { get; private set; }
+        private List<RCNSimulcastScheduleObject> RCNSimuls { get; set; }
         public MainForm()
         {
             InitializeComponent();
@@ -91,7 +92,7 @@ namespace App
             Application.Exit();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
             if (Program.Receivers.Count <= 0)
             {
@@ -109,6 +110,14 @@ namespace App
                 DevToolsMenuItem.Visible = true;
             else
                 DevToolsMenuItem.Visible = false;
+
+            if (!await GithubHandler.IsLatestVersion())
+            {
+                if (MessageBox.Show("A new update was found!\n\nDo you wish to update now?", "Update Checker", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    GithubHandler.UpdateApp();
+                }
+            }
         }
 
         private void AboutMenuItem_Click(object sender, EventArgs e)
@@ -218,6 +227,7 @@ namespace App
             if (!SuppressReceiverUpdates)
                 await Receiver.UpdateReceiverObject();
             UpdateReceiverDisplayInformation();
+            RCNSimuls = await RCNSimulcastScheduleObject.GetSimulcastRaces();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -409,6 +419,11 @@ namespace App
 
         private async void Tuner1AutoAssignButton_Click(object sender, EventArgs e)
         {
+            if (!Program.EnableAutoAssign)
+            {
+                MessageBox.Show("This feature is currently disabled.", "Feature Disabled");
+                return;
+            }
             if (MessageBox.Show("Are you sure you would like to Auto-Assign a channel? This can take a while.\n\nNote: You will not be able to continue until it is complete.", "Recon ReTuned", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
             {
                 foreach (Control con in this.Controls)
@@ -469,6 +484,11 @@ namespace App
 
         private async void Tuner2AutoAssignButton_Click(object sender, EventArgs e)
         {
+            if (!Program.EnableAutoAssign)
+            {
+                MessageBox.Show("This feature is currently disabled.", "Feature Disabled");
+                return;
+            }
             if (MessageBox.Show("Are you sure you would like to Auto-Assign a channel? This can take a while.\n\nNote: You will not be able to continue until it is complete.", "Recon ReTuned", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
             {
                 foreach (Control con in this.Controls)
@@ -542,7 +562,7 @@ namespace App
             AutoRefreshTimer.Enabled = true;
         }
 
-        private void TunerGroupbox_Paint(object sender, PaintEventArgs e)
+        private async void TunerGroupbox_Paint(object sender, PaintEventArgs e)
         {
             if (ReceiverList.SelectedRows.Count <= 0)
                 return;
@@ -557,11 +577,30 @@ namespace App
 
             Color lineColor;
 
-            if (Tuner.TunerChannel.EndTime < DateTime.Now)
-                lineColor = Program.InactiveTunedRaceColor;
-            else
-                lineColor = Program.ActiveTunedRaceColor;
+            if (RCNSimuls == null)
+                return;
 
+            RCNSimulcastScheduleObject TunerSimulObj = RCNSimuls.Find(x =>
+                x.DishChannel == Tuner.TunerChannel.DishChannel &&
+                x.Activity.Receiver?.ReceiverID == Receiver.ReceiverID &&
+                x.Activity.Tuner?.TunerID == Tuner.TunerID &&
+                x.EventName == Tuner.TunerChannel.EventName
+            );
+
+            if (TunerSimulObj == null)
+            {
+                lineColor = Program.InactiveTunedRaceColor;
+            }
+            else
+            {
+                DateTime TimezoneEndTime = TimeZoneInfo.ConvertTimeFromUtc(TunerSimulObj.EndTime, TimeZoneInfo.Local);
+                DateTime AdjustedNow = DateTime.Now.AddMinutes(30); // Account for Error* Est.
+
+                if (TimezoneEndTime < AdjustedNow || Tuner.TunerChannel.EventName == "Simulcast Guide" || !TunerSimulObj.IsActive)
+                    lineColor = Program.InactiveTunedRaceColor;
+                else
+                    lineColor = Program.ActiveTunedRaceColor;
+            }
             Size tSize = TextRenderer.MeasureText(e.Graphics, ActiveGroupbox.Text, ActiveGroupbox.Font);
 
             Rectangle borderRect = e.ClipRectangle;
@@ -579,6 +618,11 @@ namespace App
 
         private async void AutoAssignAllMenuItem_Click(object sender, EventArgs e)
         {
+            if (!Program.EnableAutoAssign)
+            {
+                MessageBox.Show("This feature is currently disabled.", "Feature Disabled");
+                return;
+            }
             if (MessageBox.Show("Are you sure you would like to Auto-Assign ALL Receivers a channel? This can take a while.\n\nNote: You will not be able to continue until it is complete.", "Recon ReTuned", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
             {
                 foreach (Control con in this.Controls)

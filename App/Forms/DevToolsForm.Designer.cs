@@ -66,7 +66,7 @@
             ReceiverCombobox.FormattingEnabled = true;
             ReceiverCombobox.Location = new Point(4, 21);
             ReceiverCombobox.Name = "ReceiverCombobox";
-            ReceiverCombobox.Size = new Size(268, 23);
+            ReceiverCombobox.Size = new Size(380, 23);
             ReceiverCombobox.TabIndex = 1;
             ReceiverCombobox.SelectedIndexChanged += ReceiverCombobox_SelectedIndexChanged;
             // 
@@ -87,7 +87,7 @@
             ServiceTypeCombobox.FormattingEnabled = true;
             ServiceTypeCombobox.Location = new Point(4, 65);
             ServiceTypeCombobox.Name = "ServiceTypeCombobox";
-            ServiceTypeCombobox.Size = new Size(268, 23);
+            ServiceTypeCombobox.Size = new Size(380, 23);
             ServiceTypeCombobox.TabIndex = 3;
             ServiceTypeCombobox.SelectedIndexChanged += ServiceTypeCombobox_SelectedIndexChanged;
             // 
@@ -108,7 +108,7 @@
             ActionCombobox.FormattingEnabled = true;
             ActionCombobox.Location = new Point(4, 109);
             ActionCombobox.Name = "ActionCombobox";
-            ActionCombobox.Size = new Size(268, 23);
+            ActionCombobox.Size = new Size(380, 23);
             ActionCombobox.TabIndex = 5;
             ActionCombobox.SelectedIndexChanged += ActionCombobox_SelectedIndexChanged;
             // 
@@ -127,14 +127,14 @@
             ActionResponseTreeView.Enabled = false;
             ActionResponseTreeView.Location = new Point(3, 21);
             ActionResponseTreeView.Name = "ActionResponseTreeView";
-            ActionResponseTreeView.Size = new Size(325, 334);
+            ActionResponseTreeView.Size = new Size(463, 334);
             ActionResponseTreeView.TabIndex = 8;
             // 
             // SendRequestButton
             // 
             SendRequestButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             SendRequestButton.Enabled = false;
-            SendRequestButton.Location = new Point(531, 376);
+            SendRequestButton.Location = new Point(781, 376);
             SendRequestButton.Name = "SendRequestButton";
             SendRequestButton.Size = new Size(91, 23);
             SendRequestButton.TabIndex = 9;
@@ -167,7 +167,7 @@
             ArgumentDataGridView.Name = "ArgumentDataGridView";
             ArgumentDataGridView.RowHeadersVisible = false;
             ArgumentDataGridView.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            ArgumentDataGridView.Size = new Size(268, 202);
+            ArgumentDataGridView.Size = new Size(380, 202);
             ArgumentDataGridView.TabIndex = 11;
             ArgumentDataGridView.DataSourceChanged += ArgumentDataGridView_DataSourceChanged;
             ArgumentDataGridView.CellClick += ArgumentDataGridView_CellClick;
@@ -212,18 +212,19 @@
             SplitContainer.Panel2.Controls.Add(ActionResponseTreeView);
             SplitContainer.Panel2.Controls.Add(ActionResponseLabel);
             SplitContainer.Panel2MinSize = 275;
-            SplitContainer.Size = new Size(610, 358);
-            SplitContainer.SplitterDistance = 275;
+            SplitContainer.Size = new Size(860, 358);
+            SplitContainer.SplitterDistance = 387;
             SplitContainer.TabIndex = 12;
             // 
             // DevToolsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(634, 411);
+            ClientSize = new Size(884, 411);
             Controls.Add(SplitContainer);
             Controls.Add(SendRequestButton);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(650, 450);
             Name = "DevToolsForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Recon ReTuned - Developer Tools";

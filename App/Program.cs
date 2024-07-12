@@ -6,6 +6,13 @@ namespace App
 {
     internal static class Program
     {
+        //Developer Settings (CONFIGURE BEFORE BUILDING)
+        public static bool DevPasswordRequired = true; // Set to False to Skip Password entirely.
+        public static string DevPassword = "R3C0NT007Z"; // Set to new password for Public Applications.
+        public static bool EnableAutoAssign = false; // Auto-Assign is a developer feature and not fully tested. Enable at your own risk.
+
+
+        //Global Settings (DO NOT CHANGE)
         public static BindingList<ReceiverObject> Receivers { get; set; }
         public static TimeSpan AutoRefresh { get; set; }
         public static TimeZoneInfo TimeZone { get; set; }
