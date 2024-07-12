@@ -670,7 +670,7 @@ namespace App
         {
             if(!await GithubHandler.IsLatestVersion())
             {
-                if(MessageBox.Show("A new update was found!\n\nDo you wish to update now?") == DialogResult.Yes)
+                if(MessageBox.Show("A new update was found!\n\nDo you wish to update now?", "Update Checker", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     GithubHandler.UpdateApp();
                 }
