@@ -668,8 +668,6 @@ namespace App
 
         private async void CheckUpdatesMenuItem_Click(object sender, EventArgs e)
         {
-            await GithubHandler.IsLatestVersion();
-
             if(!await GithubHandler.IsLatestVersion())
             {
                 if(MessageBox.Show("A new update was found!\n\nDo you wish to update now?") == DialogResult.Yes)

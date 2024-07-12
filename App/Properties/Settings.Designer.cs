@@ -25,7 +25,7 @@ namespace App.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("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")]
+        [global::System.Configuration.DefaultSettingValueAttribute("null")]
         public string access_token {
             get {
                 return ((string)(this["access_token"]));
