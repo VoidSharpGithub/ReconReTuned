@@ -253,9 +253,9 @@
             // 
             ReceiverSplitContainer.Panel2.Controls.Add(SelectedReceiverGroupbox);
             ReceiverSplitContainer.Panel2.Padding = new Padding(5);
-            ReceiverSplitContainer.Panel2MinSize = 500;
+            ReceiverSplitContainer.Panel2MinSize = 725;
             ReceiverSplitContainer.Size = new Size(994, 437);
-            ReceiverSplitContainer.SplitterDistance = 268;
+            ReceiverSplitContainer.SplitterDistance = 265;
             ReceiverSplitContainer.TabIndex = 1;
             ReceiverSplitContainer.Paint += Splitter_Paint;
             ReceiverSplitContainer.Resize += Splitter_Resize;
@@ -276,7 +276,7 @@
             ReceiverList.ReadOnly = true;
             ReceiverList.RowHeadersVisible = false;
             ReceiverList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ReceiverList.Size = new Size(258, 407);
+            ReceiverList.Size = new Size(255, 407);
             ReceiverList.TabIndex = 1;
             ReceiverList.SelectionChanged += ReceiverList_SelectionChanged;
             // 
@@ -302,7 +302,7 @@
             ReceiverListLabel.Location = new Point(5, 5);
             ReceiverListLabel.Name = "ReceiverListLabel";
             ReceiverListLabel.Padding = new Padding(5, 0, 0, 0);
-            ReceiverListLabel.Size = new Size(258, 20);
+            ReceiverListLabel.Size = new Size(255, 20);
             ReceiverListLabel.TabIndex = 0;
             ReceiverListLabel.Text = "Receivers:";
             ReceiverListLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -314,7 +314,7 @@
             SelectedReceiverGroupbox.Location = new Point(5, 5);
             SelectedReceiverGroupbox.Name = "SelectedReceiverGroupbox";
             SelectedReceiverGroupbox.Padding = new Padding(5);
-            SelectedReceiverGroupbox.Size = new Size(712, 427);
+            SelectedReceiverGroupbox.Size = new Size(715, 427);
             SelectedReceiverGroupbox.TabIndex = 0;
             SelectedReceiverGroupbox.TabStop = false;
             SelectedReceiverGroupbox.Text = "Receiver A";
@@ -336,7 +336,7 @@
             SelectedReceiverSplitContainer.Panel2.Controls.Add(groupBox1);
             SelectedReceiverSplitContainer.Panel2.Padding = new Padding(5);
             SelectedReceiverSplitContainer.Panel2MinSize = 180;
-            SelectedReceiverSplitContainer.Size = new Size(702, 401);
+            SelectedReceiverSplitContainer.Size = new Size(705, 401);
             SelectedReceiverSplitContainer.SplitterDistance = 200;
             SelectedReceiverSplitContainer.TabIndex = 0;
             SelectedReceiverSplitContainer.Paint += Splitter_Paint;
@@ -359,8 +359,8 @@
             TunerSplitContainer.Panel2.Controls.Add(Tuner2Groupbox);
             TunerSplitContainer.Panel2.Padding = new Padding(5);
             TunerSplitContainer.Panel2MinSize = 348;
-            TunerSplitContainer.Size = new Size(702, 200);
-            TunerSplitContainer.SplitterDistance = 350;
+            TunerSplitContainer.Size = new Size(705, 200);
+            TunerSplitContainer.SplitterDistance = 351;
             TunerSplitContainer.TabIndex = 0;
             TunerSplitContainer.Paint += Splitter_Paint;
             TunerSplitContainer.Resize += Splitter_Resize;
@@ -377,7 +377,7 @@
             Tuner1Groupbox.Dock = DockStyle.Fill;
             Tuner1Groupbox.Location = new Point(5, 5);
             Tuner1Groupbox.Name = "Tuner1Groupbox";
-            Tuner1Groupbox.Size = new Size(340, 190);
+            Tuner1Groupbox.Size = new Size(341, 190);
             Tuner1Groupbox.TabIndex = 0;
             Tuner1Groupbox.TabStop = false;
             Tuner1Groupbox.Text = "Tuner 1";
@@ -390,7 +390,7 @@
             Tuner1OpenEventButton.Enabled = false;
             Tuner1OpenEventButton.Location = new Point(118, 74);
             Tuner1OpenEventButton.Name = "Tuner1OpenEventButton";
-            Tuner1OpenEventButton.Size = new Size(216, 23);
+            Tuner1OpenEventButton.Size = new Size(217, 23);
             Tuner1OpenEventButton.TabIndex = 7;
             Tuner1OpenEventButton.Text = "Open Event";
             Tuner1OpenEventButton.UseVisualStyleBackColor = true;
@@ -410,7 +410,7 @@
             Tuner1ActiveChannelTextbox.Location = new Point(118, 45);
             Tuner1ActiveChannelTextbox.Name = "Tuner1ActiveChannelTextbox";
             Tuner1ActiveChannelTextbox.ReadOnly = true;
-            Tuner1ActiveChannelTextbox.Size = new Size(216, 23);
+            Tuner1ActiveChannelTextbox.Size = new Size(217, 23);
             Tuner1ActiveChannelTextbox.TabIndex = 5;
             // 
             // Tuner1ChannelLabel
@@ -428,7 +428,7 @@
             Tuner1ActiveChannelTitleTextbox.Location = new Point(118, 16);
             Tuner1ActiveChannelTitleTextbox.Name = "Tuner1ActiveChannelTitleTextbox";
             Tuner1ActiveChannelTitleTextbox.ReadOnly = true;
-            Tuner1ActiveChannelTitleTextbox.Size = new Size(216, 23);
+            Tuner1ActiveChannelTitleTextbox.Size = new Size(217, 23);
             Tuner1ActiveChannelTitleTextbox.TabIndex = 3;
             // 
             // Tuner1ControlGroupbox
@@ -440,7 +440,7 @@
             Tuner1ControlGroupbox.Controls.Add(Tuner1ChannelTextbox);
             Tuner1ControlGroupbox.Location = new Point(6, 133);
             Tuner1ControlGroupbox.Name = "Tuner1ControlGroupbox";
-            Tuner1ControlGroupbox.Size = new Size(328, 51);
+            Tuner1ControlGroupbox.Size = new Size(329, 51);
             Tuner1ControlGroupbox.TabIndex = 1;
             Tuner1ControlGroupbox.TabStop = false;
             Tuner1ControlGroupbox.Text = "Tuner Control";
@@ -449,7 +449,7 @@
             // 
             Tuner1AutoAssignButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             Tuner1AutoAssignButton.Cursor = Cursors.Hand;
-            Tuner1AutoAssignButton.Location = new Point(154, 21);
+            Tuner1AutoAssignButton.Location = new Point(155, 21);
             Tuner1AutoAssignButton.Name = "Tuner1AutoAssignButton";
             Tuner1AutoAssignButton.Size = new Size(85, 23);
             Tuner1AutoAssignButton.TabIndex = 3;
@@ -461,7 +461,7 @@
             // 
             Tuner1InactivityToggleButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             Tuner1InactivityToggleButton.Cursor = Cursors.Hand;
-            Tuner1InactivityToggleButton.Location = new Point(245, 21);
+            Tuner1InactivityToggleButton.Location = new Point(246, 21);
             Tuner1InactivityToggleButton.Name = "Tuner1InactivityToggleButton";
             Tuner1InactivityToggleButton.Size = new Size(77, 23);
             Tuner1InactivityToggleButton.TabIndex = 2;
@@ -474,7 +474,7 @@
             Tuner1SetChannelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             Tuner1SetChannelButton.Cursor = Cursors.Hand;
             Tuner1SetChannelButton.Enabled = false;
-            Tuner1SetChannelButton.Location = new Point(68, 21);
+            Tuner1SetChannelButton.Location = new Point(69, 21);
             Tuner1SetChannelButton.Name = "Tuner1SetChannelButton";
             Tuner1SetChannelButton.Size = new Size(80, 23);
             Tuner1SetChannelButton.TabIndex = 1;
@@ -489,7 +489,7 @@
             Tuner1ChannelTextbox.MaxLength = 4;
             Tuner1ChannelTextbox.Name = "Tuner1ChannelTextbox";
             Tuner1ChannelTextbox.PlaceholderText = "####";
-            Tuner1ChannelTextbox.Size = new Size(56, 23);
+            Tuner1ChannelTextbox.Size = new Size(57, 23);
             Tuner1ChannelTextbox.TabIndex = 0;
             Tuner1ChannelTextbox.TextChanged += Tuner1ChannelTextbox_TextChanged;
             Tuner1ChannelTextbox.KeyDown += Tuner1ChannelTextbox_KeyDown;
@@ -515,7 +515,7 @@
             Tuner2Groupbox.Dock = DockStyle.Fill;
             Tuner2Groupbox.Location = new Point(5, 5);
             Tuner2Groupbox.Name = "Tuner2Groupbox";
-            Tuner2Groupbox.Size = new Size(338, 190);
+            Tuner2Groupbox.Size = new Size(340, 190);
             Tuner2Groupbox.TabIndex = 0;
             Tuner2Groupbox.TabStop = false;
             Tuner2Groupbox.Text = "Tuner 2";
@@ -528,7 +528,7 @@
             Tuner2OpenEventButton.Enabled = false;
             Tuner2OpenEventButton.Location = new Point(116, 74);
             Tuner2OpenEventButton.Name = "Tuner2OpenEventButton";
-            Tuner2OpenEventButton.Size = new Size(209, 23);
+            Tuner2OpenEventButton.Size = new Size(211, 23);
             Tuner2OpenEventButton.TabIndex = 13;
             Tuner2OpenEventButton.Text = "Open Event";
             Tuner2OpenEventButton.UseVisualStyleBackColor = true;
@@ -548,7 +548,7 @@
             Tuner2ActiveChannelTextbox.Location = new Point(116, 45);
             Tuner2ActiveChannelTextbox.Name = "Tuner2ActiveChannelTextbox";
             Tuner2ActiveChannelTextbox.ReadOnly = true;
-            Tuner2ActiveChannelTextbox.Size = new Size(209, 23);
+            Tuner2ActiveChannelTextbox.Size = new Size(211, 23);
             Tuner2ActiveChannelTextbox.TabIndex = 11;
             // 
             // Tuner2ChannelLabel
@@ -566,7 +566,7 @@
             Tuner2ActiveChannelTitleTextbox.Location = new Point(116, 16);
             Tuner2ActiveChannelTitleTextbox.Name = "Tuner2ActiveChannelTitleTextbox";
             Tuner2ActiveChannelTitleTextbox.ReadOnly = true;
-            Tuner2ActiveChannelTitleTextbox.Size = new Size(209, 23);
+            Tuner2ActiveChannelTitleTextbox.Size = new Size(211, 23);
             Tuner2ActiveChannelTitleTextbox.TabIndex = 9;
             // 
             // Tuner2ChannelTitleLabel
@@ -587,7 +587,7 @@
             Tuner2ControlGroupbox.Controls.Add(Tuner2ChannelTextbox);
             Tuner2ControlGroupbox.Location = new Point(6, 133);
             Tuner2ControlGroupbox.Name = "Tuner2ControlGroupbox";
-            Tuner2ControlGroupbox.Size = new Size(326, 51);
+            Tuner2ControlGroupbox.Size = new Size(328, 51);
             Tuner2ControlGroupbox.TabIndex = 2;
             Tuner2ControlGroupbox.TabStop = false;
             Tuner2ControlGroupbox.Text = "Tuner Control";
@@ -596,7 +596,7 @@
             // 
             Tuner2AutoAssignButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             Tuner2AutoAssignButton.Cursor = Cursors.Hand;
-            Tuner2AutoAssignButton.Location = new Point(152, 22);
+            Tuner2AutoAssignButton.Location = new Point(154, 22);
             Tuner2AutoAssignButton.Name = "Tuner2AutoAssignButton";
             Tuner2AutoAssignButton.Size = new Size(85, 23);
             Tuner2AutoAssignButton.TabIndex = 3;
@@ -608,7 +608,7 @@
             // 
             Tuner2InactivityToggleButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             Tuner2InactivityToggleButton.Cursor = Cursors.Hand;
-            Tuner2InactivityToggleButton.Location = new Point(243, 22);
+            Tuner2InactivityToggleButton.Location = new Point(245, 22);
             Tuner2InactivityToggleButton.Name = "Tuner2InactivityToggleButton";
             Tuner2InactivityToggleButton.Size = new Size(77, 23);
             Tuner2InactivityToggleButton.TabIndex = 2;
@@ -621,7 +621,7 @@
             Tuner2SetChannelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             Tuner2SetChannelButton.Cursor = Cursors.Hand;
             Tuner2SetChannelButton.Enabled = false;
-            Tuner2SetChannelButton.Location = new Point(66, 22);
+            Tuner2SetChannelButton.Location = new Point(68, 22);
             Tuner2SetChannelButton.Name = "Tuner2SetChannelButton";
             Tuner2SetChannelButton.Size = new Size(80, 23);
             Tuner2SetChannelButton.TabIndex = 1;
@@ -636,7 +636,7 @@
             Tuner2ChannelTextbox.MaxLength = 4;
             Tuner2ChannelTextbox.Name = "Tuner2ChannelTextbox";
             Tuner2ChannelTextbox.PlaceholderText = "####";
-            Tuner2ChannelTextbox.Size = new Size(54, 23);
+            Tuner2ChannelTextbox.Size = new Size(56, 23);
             Tuner2ChannelTextbox.TabIndex = 0;
             Tuner2ChannelTextbox.TextChanged += Tuner2ChannelTextbox_TextChanged;
             Tuner2ChannelTextbox.KeyDown += Tuner2ChannelTextbox_KeyDown;
@@ -647,7 +647,7 @@
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(5, 5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(692, 187);
+            groupBox1.Size = new Size(695, 187);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Receiver Information";
@@ -666,7 +666,7 @@
             FlowLayoutInformation.Location = new Point(3, 19);
             FlowLayoutInformation.Margin = new Padding(0);
             FlowLayoutInformation.Name = "FlowLayoutInformation";
-            FlowLayoutInformation.Size = new Size(686, 165);
+            FlowLayoutInformation.Size = new Size(689, 165);
             FlowLayoutInformation.TabIndex = 0;
             // 
             // ReceiverInfoPanel1
