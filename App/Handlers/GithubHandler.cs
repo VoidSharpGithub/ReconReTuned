@@ -29,7 +29,7 @@ namespace App.Handlers
         {
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(Settings.Default.app_name, Settings.Default.version));
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("token", Settings.Default.access_token);
+            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("token", Settings.Default.access_token);
 
             var url = Settings.Default.repo_api_url + "/releases/latest";
             var response = await client.GetStringAsync(url);
