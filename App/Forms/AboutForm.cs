@@ -20,6 +20,7 @@ namespace App.Forms
         public AboutForm()
         {
             InitializeComponent();
+            label1.Text = $"Recon ReTuned {Settings.Default.version}";
         }
 
         private void OKBtn_Click(object sender, EventArgs e)
