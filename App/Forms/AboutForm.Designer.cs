@@ -130,7 +130,6 @@
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.Manual;
             Text = "About Recon ReTuned";
-            Load += Aboutfrm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

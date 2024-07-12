@@ -49,10 +49,5 @@ namespace App.Forms
                 MessageBox.Show("Github URL Coppied to Clipboard.");
             }
         }
-
-        private void Aboutfrm_Load(object sender, EventArgs e)
-        {
-            label1.Text = $"Recon ReTuned v{Settings.Default.version}";
-        }
     }
 }
