@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigReceiverListForm));
             ReeiverManagerGroupbox = new GroupBox();
             OrderReceiverGroupbox = new GroupBox();
             SortButton = new Button();
@@ -38,16 +39,16 @@
             EditReceiverBtn = new Button();
             AddReceiverBtn = new Button();
             ReceiverMgmtDataGridView = new DataGridView();
-            CancelBtn = new Button();
-            SaveBtn = new Button();
-            ImportBtn = new Button();
-            ExportBtn = new Button();
-            ReceiverTimer = new System.Windows.Forms.Timer(components);
             ReceiverNameColumn = new DataGridViewTextBoxColumn();
             ReceiverIDColumn = new DataGridViewTextBoxColumn();
             ReceiverIPColumn = new DataGridViewTextBoxColumn();
             Tuner1StatusColumn = new DataGridViewTextBoxColumn();
             Tuner2StatusColumn = new DataGridViewTextBoxColumn();
+            CancelBtn = new Button();
+            SaveBtn = new Button();
+            ImportBtn = new Button();
+            ExportBtn = new Button();
+            ReceiverTimer = new System.Windows.Forms.Timer(components);
             ReeiverManagerGroupbox.SuspendLayout();
             OrderReceiverGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ReceiverMgmtDataGridView).BeginInit();
@@ -172,55 +173,6 @@
             ReceiverMgmtDataGridView.CellFormatting += ReceiverMgmtDataGridView_CellFormatting;
             ReceiverMgmtDataGridView.SelectionChanged += ReceiverMgmtDataGridView_SelectionChanged;
             // 
-            // CancelBtn
-            // 
-            CancelBtn.Cursor = Cursors.Hand;
-            CancelBtn.Location = new Point(422, 476);
-            CancelBtn.Name = "CancelBtn";
-            CancelBtn.Size = new Size(75, 23);
-            CancelBtn.TabIndex = 1;
-            CancelBtn.Text = "Cancel";
-            CancelBtn.UseVisualStyleBackColor = true;
-            // 
-            // SaveBtn
-            // 
-            SaveBtn.Cursor = Cursors.Hand;
-            SaveBtn.Location = new Point(341, 476);
-            SaveBtn.Name = "SaveBtn";
-            SaveBtn.Size = new Size(75, 23);
-            SaveBtn.TabIndex = 2;
-            SaveBtn.Text = "Save";
-            SaveBtn.UseVisualStyleBackColor = true;
-            SaveBtn.Click += SaveBtn_Click;
-            // 
-            // ImportBtn
-            // 
-            ImportBtn.Cursor = Cursors.Hand;
-            ImportBtn.Location = new Point(12, 476);
-            ImportBtn.Name = "ImportBtn";
-            ImportBtn.Size = new Size(75, 23);
-            ImportBtn.TabIndex = 3;
-            ImportBtn.Text = "Import";
-            ImportBtn.UseVisualStyleBackColor = true;
-            ImportBtn.Click += ImportBtn_Click;
-            // 
-            // ExportBtn
-            // 
-            ExportBtn.Cursor = Cursors.Hand;
-            ExportBtn.Enabled = false;
-            ExportBtn.Location = new Point(93, 476);
-            ExportBtn.Name = "ExportBtn";
-            ExportBtn.Size = new Size(75, 23);
-            ExportBtn.TabIndex = 4;
-            ExportBtn.Text = "Export";
-            ExportBtn.UseVisualStyleBackColor = true;
-            ExportBtn.Click += ExportBtn_Click;
-            // 
-            // ReceiverTimer
-            // 
-            ReceiverTimer.Enabled = true;
-            ReceiverTimer.Tick += ReceiverTimer_Tick;
-            // 
             // ReceiverNameColumn
             // 
             ReceiverNameColumn.DataPropertyName = "ReceiverName";
@@ -270,6 +222,55 @@
             Tuner2StatusColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
             Tuner2StatusColumn.Width = 87;
             // 
+            // CancelBtn
+            // 
+            CancelBtn.Cursor = Cursors.Hand;
+            CancelBtn.Location = new Point(422, 476);
+            CancelBtn.Name = "CancelBtn";
+            CancelBtn.Size = new Size(75, 23);
+            CancelBtn.TabIndex = 1;
+            CancelBtn.Text = "Cancel";
+            CancelBtn.UseVisualStyleBackColor = true;
+            // 
+            // SaveBtn
+            // 
+            SaveBtn.Cursor = Cursors.Hand;
+            SaveBtn.Location = new Point(341, 476);
+            SaveBtn.Name = "SaveBtn";
+            SaveBtn.Size = new Size(75, 23);
+            SaveBtn.TabIndex = 2;
+            SaveBtn.Text = "Save";
+            SaveBtn.UseVisualStyleBackColor = true;
+            SaveBtn.Click += SaveBtn_Click;
+            // 
+            // ImportBtn
+            // 
+            ImportBtn.Cursor = Cursors.Hand;
+            ImportBtn.Location = new Point(12, 476);
+            ImportBtn.Name = "ImportBtn";
+            ImportBtn.Size = new Size(75, 23);
+            ImportBtn.TabIndex = 3;
+            ImportBtn.Text = "Import";
+            ImportBtn.UseVisualStyleBackColor = true;
+            ImportBtn.Click += ImportBtn_Click;
+            // 
+            // ExportBtn
+            // 
+            ExportBtn.Cursor = Cursors.Hand;
+            ExportBtn.Enabled = false;
+            ExportBtn.Location = new Point(93, 476);
+            ExportBtn.Name = "ExportBtn";
+            ExportBtn.Size = new Size(75, 23);
+            ExportBtn.TabIndex = 4;
+            ExportBtn.Text = "Export";
+            ExportBtn.UseVisualStyleBackColor = true;
+            ExportBtn.Click += ExportBtn_Click;
+            // 
+            // ReceiverTimer
+            // 
+            ReceiverTimer.Enabled = true;
+            ReceiverTimer.Tick += ReceiverTimer_Tick;
+            // 
             // ConfigReceiverListForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -282,11 +283,10 @@
             Controls.Add(CancelBtn);
             Controls.Add(ReeiverManagerGroupbox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "ConfigReceiverListForm";
-            ShowIcon = false;
-            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "Receiver Configuration";
             FormClosing += ConfigReceiverListForm_FormClosing;

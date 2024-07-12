@@ -156,7 +156,7 @@
             // ExitMenuItem
             // 
             ExitMenuItem.Name = "ExitMenuItem";
-            ExitMenuItem.Size = new Size(180, 22);
+            ExitMenuItem.Size = new Size(93, 22);
             ExitMenuItem.Text = "Exit";
             ExitMenuItem.Click += ExitMenuItem_Click;
             // 
@@ -218,21 +218,21 @@
             // RCNScheduleMenuItem
             // 
             RCNScheduleMenuItem.Name = "RCNScheduleMenuItem";
-            RCNScheduleMenuItem.Size = new Size(180, 22);
+            RCNScheduleMenuItem.Size = new Size(157, 22);
             RCNScheduleMenuItem.Text = "RCN Schedule";
             RCNScheduleMenuItem.Click += RCNScheduleMenuItem_Click;
             // 
             // AutoAssignAllMenuItem
             // 
             AutoAssignAllMenuItem.Name = "AutoAssignAllMenuItem";
-            AutoAssignAllMenuItem.Size = new Size(180, 22);
+            AutoAssignAllMenuItem.Size = new Size(157, 22);
             AutoAssignAllMenuItem.Text = "Auto Assign All";
             AutoAssignAllMenuItem.Click += AutoAssignAllMenuItem_Click;
             // 
             // DevToolsMenuItem
             // 
             DevToolsMenuItem.Name = "DevToolsMenuItem";
-            DevToolsMenuItem.Size = new Size(180, 22);
+            DevToolsMenuItem.Size = new Size(157, 22);
             DevToolsMenuItem.Text = "Developer Tools";
             DevToolsMenuItem.Click += DevToolsMenuItem_Click;
             // 

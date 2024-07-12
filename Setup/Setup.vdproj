@@ -21,7 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D48939BA496A4345A318F5D7A7EF7225"
+        "MsmKey" = "8:_B959C0A2B451474898FF22D3095C940E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -43,6 +43,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -161,7 +177,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_CC10AE0A272345219ED0BBD660EB2C73"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[LocalAppDataFolder]ReconReTuned"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -186,25 +202,25 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Setup"
+        "ProductName" = "8:Recon ReTuned"
         "ProductCode" = "8:{152BF32F-AF2A-4AAA-9685-582BB3FF12B4}"
-        "PackageCode" = "8:{74ACF53E-B389-499D-8103-FD0380FA4B00}"
+        "PackageCode" = "8:{2833F2D4-9324-4EA0-8AB0-2ACFA43089C8}"
         "UpgradeCode" = "8:{E0C365F1-B5F7-4199-8F78-218C95D387B5}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "Manufacturer" = "8:Jamie Head"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Setup"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
+        "ARPCONTACT" = "8:Jamie Head"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:"
+        "ARPURLINFOABOUT" = "8:https://github.com/VoidSharpGithub/ReconReTuned"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
@@ -308,18 +324,18 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_46C8AAF34DEC4BC982D136AF81721C7C"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_884892BBC08B44CDB291CC0715FF96A4"
             {
             "Name" = "8:Recon ReTuned"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_D48939BA496A4345A318F5D7A7EF7225"
+            "Target" = "8:_B959C0A2B451474898FF22D3095C940E"
             "Folder" = "8:_7EC0A82593B6473BAC5229A88B8F473B"
             "WorkingFolder" = "8:_CC10AE0A272345219ED0BBD660EB2C73"
-            "Icon" = "8:"
+            "Icon" = "8:_B959C0A2B451474898FF22D3095C940E"
             "Feature" = "8:"
             }
         }
@@ -731,7 +747,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D48939BA496A4345A318F5D7A7EF7225"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B959C0A2B451474898FF22D3095C940E"
             {
             "SourcePath" = "8:..\\App\\obj\\Release\\net8.0-windows\\apphost.exe"
             "TargetName" = "8:"
@@ -751,7 +767,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:Release|Any CPU"
+            "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:PublishItems"
             "OutputProjectGuid" = "8:{95A8B8BE-9AB0-4550-90EF-9F188364E49C}"
             "ShowKeyOutput" = "11:TRUE"

@@ -1,4 +1,5 @@
-﻿using App.Properties;
+﻿using App.Handlers;
+using App.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,16 +30,12 @@ namespace App.Forms
         //TODO: Fix Github Linking
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            string GitHubURL = Settings.Default.repo_url;
             if (e.Button == MouseButtons.Left)
             {
                 try
                 {
-                    var psi = new ProcessStartInfo
-                    {
-                        FileName = $"mailto:{linkLabel1.Text}",
-                        UseShellExecute = true
-                    };
-                    Process.Start(psi);
+                    Process.Start(new ProcessStartInfo(GitHubURL) { UseShellExecute = true });
                 }
                 catch (Exception ex)
                 {
@@ -46,8 +44,8 @@ namespace App.Forms
             }
             else
             {
-                Clipboard.SetText(linkLabel1.Text);
-                MessageBox.Show("Email address copied to clipboard.");
+                Clipboard.SetText(GitHubURL);
+                MessageBox.Show("Github URL Coppied to Clipboard.");
             }
         }
 

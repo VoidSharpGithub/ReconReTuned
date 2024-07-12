@@ -58,5 +58,14 @@ namespace App.Properties {
                 return ((string)(this["app_name"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/VoidSharpGithub/ReconReTuned")]
+        public string repo_url {
+            get {
+                return ((string)(this["repo_url"]));
+            }
+        }
     }
 }
