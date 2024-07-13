@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,7 +42,9 @@ namespace App.Forms
             ServiceTypeCombobox.SelectedIndex = -1;
 
             ActionResponseTreeView.Nodes.Clear();
+            ActionPayloadTreeView.Nodes.Clear();
             ActionResponseTreeView.Enabled = false;
+            ActionPayloadTreeView.Enabled = false;
         }
 
         private async void ServiceTypeCombobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,7 +54,9 @@ namespace App.Forms
                 ActionCombobox.SelectedIndex = -1;
                 ActionCombobox.Items.Clear();
                 ActionResponseTreeView.Nodes.Clear();
+                ActionPayloadTreeView.Nodes.Clear();
                 ActionResponseTreeView.Enabled = false;
+                ActionPayloadTreeView.Enabled = false;
                 ActionCombobox.Enabled = false;
                 SendRequestButton.Enabled = false;
             }
@@ -68,6 +73,8 @@ namespace App.Forms
                 ArgumentDataGridView.Enabled = false;
                 ActionResponseTreeView.Nodes.Clear();
                 ActionResponseTreeView.Enabled = false;
+                ActionPayloadTreeView.Nodes.Clear();
+                ActionPayloadTreeView.Enabled = false;
             }
         }
 
@@ -81,6 +88,8 @@ namespace App.Forms
                 SendRequestButton.Enabled = false;
                 ActionResponseTreeView.Nodes.Clear();
                 ActionResponseTreeView.Enabled = false;
+                ActionPayloadTreeView.Nodes.Clear();
+                ActionPayloadTreeView.Enabled = false;
             }
             else
             {
@@ -134,6 +143,8 @@ namespace App.Forms
                 SendRequestButton.Enabled = true;
                 ActionResponseTreeView.Nodes.Clear();
                 ActionResponseTreeView.Enabled = false;
+                ActionPayloadTreeView.Nodes.Clear();
+                ActionPayloadTreeView.Enabled = false;
             }
         }
 
@@ -197,10 +208,12 @@ namespace App.Forms
             XmlDocument xmlEnv = SOAPHandler.GenerateSoapEnvelope(SelectedAction.Name, ConvertRowsToDictionary(ArgumentDataGridView));
             XmlDocument xml = await SOAPHandler.PostSoapRequest(SelectedReceiver.ReceiverIP, xmlEnv, SelectedServiceType);
             ActionResponseTreeView.Nodes.Clear();
-            if(xml == null)
+            ActionPayloadTreeView.Nodes.Clear();
+            if (xml == null)
             {
                 MessageBox.Show("Error: No data responded", "Recon ReTuned", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ActionResponseTreeView.Enabled = true;
+                ActionPayloadTreeView.Enabled = true;
                 SendRequestButton.Enabled = true;
                 ArgumentDataGridView.Enabled = true;
                 ActionCombobox.Enabled = true;
@@ -208,13 +221,23 @@ namespace App.Forms
                 ReceiverCombobox.Enabled = true;
                 return;
             }
-            XmlNode bodyNode = xml.DocumentElement["s:Body"];
-            if (bodyNode != null)
+
+            XmlNode bodyNode1 = xmlEnv.DocumentElement["s:Body"];
+            if (bodyNode1 != null)
             {
-                TreeNode treeNode = ActionResponseTreeView.Nodes.Add(bodyNode.LocalName);
-                AddNode(bodyNode, treeNode);
+                TreeNode treeNode1 = ActionPayloadTreeView.Nodes.Add(bodyNode1.LocalName);
+                AddNode(bodyNode1, treeNode1);
+            }
+
+
+            XmlNode bodyNode2 = xml.DocumentElement["s:Body"];
+            if (bodyNode2 != null)
+            {
+                TreeNode treeNode2 = ActionResponseTreeView.Nodes.Add(bodyNode2.LocalName);
+                AddNode(bodyNode2, treeNode2);
             }
             ActionResponseTreeView.Enabled = true;
+            ActionPayloadTreeView.Enabled = true;
             SendRequestButton.Enabled = true;
             ArgumentDataGridView.Enabled = true;
             ActionCombobox.Enabled = true;
@@ -312,13 +335,52 @@ namespace App.Forms
         {
             if (e.ColumnIndex == 1 && e.RowIndex >= 0)
             {
-                if(ArgumentDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewComboBoxCell)
+                if (ArgumentDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewComboBoxCell)
                 {
                     ArgumentDataGridView.CurrentCell = ArgumentDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
                     ArgumentDataGridView.BeginEdit(true);
                     System.Windows.Forms.ComboBox comboBox = (System.Windows.Forms.ComboBox)ArgumentDataGridView.EditingControl;
                     comboBox.DroppedDown = true;
                 }
+            }
+        }
+
+        private void ActionResponseTreeView_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                TreeNode node = ActionResponseTreeView.GetNodeAt(e.X, e.Y);
+
+                if (node != null && node.Bounds.Contains(e.Location))
+                {
+                    ActionResponseTreeView.SelectedNode = node;
+
+                    if (node.Text.StartsWith("/") && node.Text.EndsWith(".xml"))
+                    {
+                        ActionPayloadXMLContextMenu.Show(ActionResponseTreeView, e.Location);
+                    }
+                }
+            }
+        }
+
+        private async void LoadXMLResponseMenuItem_Click(object sender, EventArgs e)
+        {
+            ReceiverObject SelectedReceiver = ReceiverCombobox.SelectedItem as ReceiverObject;
+            ServiceType SelectedServiceType = ServiceTypeCombobox.SelectedItem as ServiceType;
+            TreeNode node = ActionResponseTreeView.SelectedNode;
+            if (node == null || SelectedReceiver == null || SelectedServiceType == null)
+                return;
+            string XMLUrl = $"http://{SelectedReceiver.ReceiverIP}:{SelectedServiceType.Port}{node.Text}";
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync(XMLUrl);
+                response.EnsureSuccessStatusCode();
+
+                string xmlContent = await response.Content.ReadAsStringAsync();
+
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(xmlContent);
+                RichMessageBox.ShowXML($"Showing {node.Text}", xmlDoc, "Developer XML Viewer");
             }
         }
     }

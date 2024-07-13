@@ -268,6 +268,7 @@
             ReceiverList.AllowUserToResizeRows = false;
             ReceiverList.BackgroundColor = SystemColors.Control;
             ReceiverList.BorderStyle = BorderStyle.Fixed3D;
+            ReceiverList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             ReceiverList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ReceiverList.Columns.AddRange(new DataGridViewColumn[] { NameColumn, IPAddressColumn });
             ReceiverList.Dock = DockStyle.Fill;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevToolsForm));
             ReceiverLabel = new Label();
             ReceiverCombobox = new ComboBox();
@@ -37,17 +38,27 @@
             ActionCombobox = new ComboBox();
             ActionArgumentLabel = new Label();
             ActionResponseTreeView = new TreeView();
+            ActionPayloadXMLContextMenu = new ContextMenuStrip(components);
+            LoadXMLResponseMenuItem = new ToolStripMenuItem();
             SendRequestButton = new Button();
             ActionResponseLabel = new Label();
             ArgumentDataGridView = new DataGridView();
             ArgumentColumn = new DataGridViewTextBoxColumn();
             ValueColumn = new DataGridViewTextBoxColumn();
             SplitContainer = new SplitContainer();
+            SplitContainerPayloads = new SplitContainer();
+            ActionPayloadLabel = new Label();
+            ActionPayloadTreeView = new TreeView();
+            ActionPayloadXMLContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ArgumentDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SplitContainer).BeginInit();
             SplitContainer.Panel1.SuspendLayout();
             SplitContainer.Panel2.SuspendLayout();
             SplitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)SplitContainerPayloads).BeginInit();
+            SplitContainerPayloads.Panel1.SuspendLayout();
+            SplitContainerPayloads.Panel2.SuspendLayout();
+            SplitContainerPayloads.SuspendLayout();
             SuspendLayout();
             // 
             // ReceiverLabel
@@ -127,8 +138,22 @@
             ActionResponseTreeView.Enabled = false;
             ActionResponseTreeView.Location = new Point(3, 21);
             ActionResponseTreeView.Name = "ActionResponseTreeView";
-            ActionResponseTreeView.Size = new Size(463, 334);
+            ActionResponseTreeView.Size = new Size(226, 334);
             ActionResponseTreeView.TabIndex = 8;
+            ActionResponseTreeView.MouseUp += ActionResponseTreeView_MouseUp;
+            // 
+            // ActionPayloadXMLContextMenu
+            // 
+            ActionPayloadXMLContextMenu.Items.AddRange(new ToolStripItem[] { LoadXMLResponseMenuItem });
+            ActionPayloadXMLContextMenu.Name = "ActionPayloadXMLContextMenu";
+            ActionPayloadXMLContextMenu.Size = new Size(181, 26);
+            // 
+            // LoadXMLResponseMenuItem
+            // 
+            LoadXMLResponseMenuItem.Name = "LoadXMLResponseMenuItem";
+            LoadXMLResponseMenuItem.Size = new Size(180, 22);
+            LoadXMLResponseMenuItem.Text = "Load XML Response";
+            LoadXMLResponseMenuItem.Click += LoadXMLResponseMenuItem_Click;
             // 
             // SendRequestButton
             // 
@@ -209,12 +234,50 @@
             // 
             // SplitContainer.Panel2
             // 
-            SplitContainer.Panel2.Controls.Add(ActionResponseTreeView);
-            SplitContainer.Panel2.Controls.Add(ActionResponseLabel);
+            SplitContainer.Panel2.Controls.Add(SplitContainerPayloads);
             SplitContainer.Panel2MinSize = 275;
             SplitContainer.Size = new Size(860, 358);
             SplitContainer.SplitterDistance = 387;
             SplitContainer.TabIndex = 12;
+            // 
+            // SplitContainerPayloads
+            // 
+            SplitContainerPayloads.Dock = DockStyle.Fill;
+            SplitContainerPayloads.Location = new Point(0, 0);
+            SplitContainerPayloads.Name = "SplitContainerPayloads";
+            // 
+            // SplitContainerPayloads.Panel1
+            // 
+            SplitContainerPayloads.Panel1.Controls.Add(ActionPayloadLabel);
+            SplitContainerPayloads.Panel1.Controls.Add(ActionPayloadTreeView);
+            SplitContainerPayloads.Panel1MinSize = 230;
+            // 
+            // SplitContainerPayloads.Panel2
+            // 
+            SplitContainerPayloads.Panel2.Controls.Add(ActionResponseLabel);
+            SplitContainerPayloads.Panel2.Controls.Add(ActionResponseTreeView);
+            SplitContainerPayloads.Panel2MinSize = 230;
+            SplitContainerPayloads.Size = new Size(469, 358);
+            SplitContainerPayloads.SplitterDistance = 233;
+            SplitContainerPayloads.TabIndex = 11;
+            // 
+            // ActionPayloadLabel
+            // 
+            ActionPayloadLabel.AutoSize = true;
+            ActionPayloadLabel.Location = new Point(7, 3);
+            ActionPayloadLabel.Name = "ActionPayloadLabel";
+            ActionPayloadLabel.Size = new Size(90, 15);
+            ActionPayloadLabel.TabIndex = 12;
+            ActionPayloadLabel.Text = "Action Payload:";
+            // 
+            // ActionPayloadTreeView
+            // 
+            ActionPayloadTreeView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ActionPayloadTreeView.Enabled = false;
+            ActionPayloadTreeView.Location = new Point(3, 21);
+            ActionPayloadTreeView.Name = "ActionPayloadTreeView";
+            ActionPayloadTreeView.Size = new Size(227, 334);
+            ActionPayloadTreeView.TabIndex = 11;
             // 
             // DevToolsForm
             // 
@@ -224,18 +287,24 @@
             Controls.Add(SplitContainer);
             Controls.Add(SendRequestButton);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MinimumSize = new Size(650, 450);
+            MinimumSize = new Size(900, 450);
             Name = "DevToolsForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Recon ReTuned - Developer Tools";
             Load += DevToolsForm_Load;
+            ActionPayloadXMLContextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ArgumentDataGridView).EndInit();
             SplitContainer.Panel1.ResumeLayout(false);
             SplitContainer.Panel1.PerformLayout();
             SplitContainer.Panel2.ResumeLayout(false);
-            SplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)SplitContainer).EndInit();
             SplitContainer.ResumeLayout(false);
+            SplitContainerPayloads.Panel1.ResumeLayout(false);
+            SplitContainerPayloads.Panel1.PerformLayout();
+            SplitContainerPayloads.Panel2.ResumeLayout(false);
+            SplitContainerPayloads.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)SplitContainerPayloads).EndInit();
+            SplitContainerPayloads.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -255,5 +324,10 @@
         private SplitContainer SplitContainer;
         private DataGridViewTextBoxColumn ArgumentColumn;
         private DataGridViewTextBoxColumn ValueColumn;
+        private SplitContainer SplitContainerPayloads;
+        private Label ActionPayloadLabel;
+        private TreeView ActionPayloadTreeView;
+        private ContextMenuStrip ActionPayloadXMLContextMenu;
+        private ToolStripMenuItem LoadXMLResponseMenuItem;
     }
 }
