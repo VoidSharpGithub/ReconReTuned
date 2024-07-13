@@ -257,6 +257,7 @@
             ReceiverSplitContainer.Size = new Size(994, 437);
             ReceiverSplitContainer.SplitterDistance = 265;
             ReceiverSplitContainer.TabIndex = 1;
+            ReceiverSplitContainer.TabStop = false;
             ReceiverSplitContainer.Paint += Splitter_Paint;
             ReceiverSplitContainer.Resize += Splitter_Resize;
             // 
@@ -339,6 +340,7 @@
             SelectedReceiverSplitContainer.Size = new Size(705, 401);
             SelectedReceiverSplitContainer.SplitterDistance = 200;
             SelectedReceiverSplitContainer.TabIndex = 0;
+            SelectedReceiverSplitContainer.TabStop = false;
             SelectedReceiverSplitContainer.Paint += Splitter_Paint;
             SelectedReceiverSplitContainer.Resize += Splitter_Resize;
             // 
@@ -362,6 +364,7 @@
             TunerSplitContainer.Size = new Size(705, 200);
             TunerSplitContainer.SplitterDistance = 351;
             TunerSplitContainer.TabIndex = 0;
+            TunerSplitContainer.TabStop = false;
             TunerSplitContainer.Paint += Splitter_Paint;
             TunerSplitContainer.Resize += Splitter_Resize;
             // 
