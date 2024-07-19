@@ -66,7 +66,10 @@ namespace App.Handlers
                     {
                         string encryptedReceiverList = key.GetValue(RegKeyReceivers) as string;
                         string decryptedReceiverList = CypherHandler.DecryptString(encryptedReceiverList);
-                        return JsonHandler.DeserializeReceiverList(decryptedReceiverList);
+                        if (decryptedReceiverList == null)
+                            return new BindingList<ReceiverObject>();
+                        else
+                            return JsonHandler.DeserializeReceiverList(decryptedReceiverList);
                     }
                     return new BindingList<ReceiverObject>();
                 }
@@ -88,7 +91,10 @@ namespace App.Handlers
                     {
                         string encryptedReceiverList = key.GetValue(RegKeyReceivers) as string;
                         string decryptedReceiverList = CypherHandler.DecryptString(encryptedReceiverList);
-                        Program.Receivers =  JsonHandler.DeserializeReceiverList(decryptedReceiverList);
+                        if(decryptedReceiverList == null)
+                            Program.Receivers = new BindingList<ReceiverObject>();
+                        else
+                            Program.Receivers =  JsonHandler.DeserializeReceiverList(decryptedReceiverList);
                     }
                     else
                     {
