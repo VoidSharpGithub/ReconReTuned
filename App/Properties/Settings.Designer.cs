@@ -43,7 +43,7 @@ namespace App.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v1.0.7")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v1.0.8")]
         public string version {
             get {
                 return ((string)(this["version"]));
