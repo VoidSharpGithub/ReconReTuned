@@ -12,9 +12,9 @@ namespace App.Handlers
 {
     public static class RegistryHandler
     {
-        private static string RegKeyPath = @"Software\DCGReconReTuned\Settings";
+        private static string RegKeyPath = @"Software\ReconReTuned\Settings";
         private static string RegKeyReceivers = "Receivers";
-        private static string RegKeyPathGeneral = @"Software\DCGReconReTuned\Settings\General";
+        private static string RegKeyPathGeneral = @"Software\ReconReTuned\Settings\General";
         private static string RegKeyAutoRefresh = "AutoRefresh";
         private static string RegKeyTimeZone = "TimeZone";
         private static string RegKeyAutoAssign = "AutoAssign";
