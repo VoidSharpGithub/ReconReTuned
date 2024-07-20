@@ -9,6 +9,11 @@ Project("{B7DD6F7E-DEF8-4E67-B5B7-07EF123DB6F0}") = "SetupProject", "SetupProjec
 EndProject
 Project("{B7DD6F7E-DEF8-4E67-B5B7-07EF123DB6F0}") = "BundleProject", "BundleProject\BundleProject.wixproj", "{4E28A83A-C1C4-4FCD-901A-C1B61035D77F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5FC91248-B563-44E9-8795-D22223D35604}"
+	ProjectSection(SolutionItems) = preProject
+		SetupFileGen.ps1 = SetupFileGen.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
