@@ -1,0 +1,82 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:netfx="http://wixtoolset.org/schemas/v4/wxs/netfx">
+	<Package Name="Recon ReTuned" Language="1033" Version="1.1.0" Manufacturer="VoidSharp" UpgradeCode="02538CCA-E5D1-447A-82A8-1C3891D7626A" Scope="perUser"><MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<Feature Id="MainFeature" Title="Main Feature" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentGroupRef Id="ShortcutComponents" />
+		</Feature>
+	
+		<StandardDirectory Id="LocalAppDataFolder">
+			<Directory Id="INSTALLFOLDER" Name="Recon ReTuned" />
+		</StandardDirectory>
+		<StandardDirectory Id="DesktopFolder" />
+		<Icon Id="Icon.ico" SourceFile="Resources\Icon.ico"/>
+		<Property Id="ARPPRODUCTICON" Value="Icon.ico" />
+	</Package>
+	
+	<Fragment>
+		<DirectoryRef Id="INSTALLFOLDER">
+			<Component Id="MainExecutable" Guid="14F877C2-0C5C-40DA-BCA6-13177E17E48C">
+				<File Id="ReconReTunedExe" Source="..\App\bin\Release\net8.0-windows\Recon ReTuned.exe" />
+				<File Source="..\App\bin\Release\net8.0-windows\Adobe.PDFServicesSDK.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\BouncyCastle.Crypto.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\EPPlus.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\EPPlus.Interfaces.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\EPPlus.System.Drawing.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\HtmlAgilityPack.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\jose-jwt.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Microsoft.Extensions.Primitives.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Microsoft.IO.RecyclableMemoryStream.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Newtonsoft.Json.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Polly.Core.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Polly.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Recon ReTuned.deps.json" />
+				<File Source="..\App\bin\Release\net8.0-windows\Recon ReTuned.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\Recon ReTuned.dll.config" />
+				<File Source="..\App\bin\Release\net8.0-windows\Recon ReTuned.pdb" />
+				<File Source="..\App\bin\Release\net8.0-windows\Recon ReTuned.runtimeconfig.json" />
+				<File Source="..\App\bin\Release\net8.0-windows\RestSharp.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\UglyToad.PdfPig.Core.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\UglyToad.PdfPig.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\UglyToad.PdfPig.DocumentLayoutAnalysis.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\UglyToad.PdfPig.Fonts.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\UglyToad.PdfPig.Package.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\UglyToad.PdfPig.Tokenization.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\UglyToad.PdfPig.Tokens.dll" />
+				<File Source="..\App\bin\Release\net8.0-windows\UriTemplate.Core.dll" />
+
+				<RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+			</Component>
+		</DirectoryRef>
+
+		<DirectoryRef Id="INSTALLFOLDER">
+			<Component Id="RemoveFilesComponent" Guid="216BAFDB-751C-4D42-B401-186BAE28AC38">
+				<RemoveFolder Id="RemoveAllFiles" On="uninstall" Directory="INSTALLFOLDER" />
+				<RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+			</Component>
+		</DirectoryRef>
+
+		<StandardDirectory Id="DesktopFolder">
+			<Component Id="DesktopShortcut" Guid="B498CC8E-5EC4-496E-8629-A6F639A0371E">
+				<Shortcut Id="DesktopShortcut" Name="Recon ReTuned" Target="[INSTALLFOLDER]Recon ReTuned.exe" WorkingDirectory="INSTALLFOLDER" />
+				<RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+			</Component>
+		</StandardDirectory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents">
+			<ComponentRef Id="RemoveFilesComponent" />
+			<ComponentRef Id="MainExecutable" />
+		</ComponentGroup>
+		<ComponentGroup Id="ShortcutComponents">
+			<ComponentRef Id="DesktopShortcut" />
+		</ComponentGroup>
+	</Fragment>
+</Wix>
